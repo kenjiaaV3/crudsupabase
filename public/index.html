@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,7 @@
 
         .container {
             width: 90%;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 40px auto;
         }
 
@@ -39,7 +40,7 @@
 
         form {
             display: grid;
-            grid-template-columns: repeat(3, 1fr) auto;
+            grid-template-columns: repeat(4, 1fr) auto;
             gap: 10px;
         }
 
@@ -93,13 +94,17 @@
             background: #b00020;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 800px) {
             form {
                 grid-template-columns: 1fr;
             }
 
+            .table-container {
+                overflow-x: auto;
+            }
+
             table {
-                font-size: 13px;
+                min-width: 700px;
             }
         }
     </style>
@@ -111,6 +116,7 @@
 
         <h1>CRUD Users - Supabase</h1>
 
+        <!-- FORM -->
         <div class="card">
 
             <h2 id="formTitle">Tambah User</h2>
@@ -138,7 +144,17 @@
                     required
                 >
 
-                <button type="submit" id="submitButton">
+                <input
+                    type="text"
+                    id="alamat"
+                    placeholder="Alamat"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    id="submitButton"
+                >
                     Tambah
                 </button>
 
@@ -154,26 +170,34 @@
 
         </div>
 
+        <!-- DATA -->
         <div class="card">
 
             <h2>Data Users</h2>
 
-            <table>
+            <div class="table-container">
 
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nama</th>
-                        <th>Email</th>
-                        <th>Umur</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
+                <table>
 
-                <tbody id="userTable">
-                </tbody>
+                    <thead>
 
-            </table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Umur</th>
+                            <th>Alamat</th>
+                            <th>Aksi</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="userTable">
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </div>
 
@@ -182,4 +206,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
